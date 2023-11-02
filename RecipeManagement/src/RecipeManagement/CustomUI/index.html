@@ -1,0 +1,26 @@
+<!-- CustomUI/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom UI</title>
+</head>
+<body>
+<h1>Welcome to the Custom UI!</h1>
+<div id="recipes"></div>
+<script>
+    // When the page loads, fetch the recipes
+    window.onload = function() {
+        fetch('/api/recipes')
+            .then(response => response.json())
+            .then(data => {
+                const recipesElement = document.getElementById('recipes');
+                recipesElement.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                console.error('There was an error fetching the recipes:', error);
+            });
+    };
+</script>
+</body>
+</html>

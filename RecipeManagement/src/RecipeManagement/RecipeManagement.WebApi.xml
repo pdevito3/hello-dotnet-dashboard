@@ -69,5 +69,17 @@
             Registers all services in the assembly of the given interface.
             </summary>
         </member>
+        <member name="T:RecipeManagement.Migrations.InitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:RecipeManagement.Migrations.InitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RecipeManagement.Migrations.InitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RecipeManagement.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

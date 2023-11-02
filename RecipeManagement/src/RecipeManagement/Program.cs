@@ -5,6 +5,7 @@ using Hellang.Middleware.ProblemDetails;
 using RecipeManagement.Extensions.Application;
 using RecipeManagement.Extensions.Services;
 using RecipeManagement.Databases;
+using RecipeManagement.Middleware;
 using RecipeManagement.Resources.HangfireUtilities;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,7 @@ app.UseHangfireDashboard("/hangfire", new DashboardOptions
 });
 
 app.UseSwaggerExtension(builder.Configuration, builder.Environment);
+app.UseCustomUI();
 
 try
 {

@@ -58,6 +58,9 @@
     
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="CustomUI\index.html" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\SharedKernel\SharedKernel.csproj" />
