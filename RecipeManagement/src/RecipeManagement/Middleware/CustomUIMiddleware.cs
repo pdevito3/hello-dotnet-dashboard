@@ -48,17 +48,15 @@ public class CustomUIMiddleware
 
                 if (path.Equals("index.html", StringComparison.OrdinalIgnoreCase))
                 {
-                    using (var reader = new StreamReader(resourceStream))
-                    {
-                        var content = await reader.ReadToEndAsync();
+                    using var reader = new StreamReader(resourceStream);
+                    var content = await reader.ReadToEndAsync();
 
-                        // Here you inject the environment variable value into the placeholder in your index.html
-                        var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                        content = content.Replace("{{ASPNETCORE_ENVIRONMENT}}", environment);
+                    // Here you inject the environment variable value into the placeholder in your index.html
+                    var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                    content = content.Replace("{{ASPNETCORE_ENVIRONMENT}}", environment);
 
-                        await context.Response.WriteAsync(content);
-                        return; // Ensure you exit after handling the response
-                    }
+                    await context.Response.WriteAsync(content);
+                    return; // Ensure you exit after handling the response
                 }
                 
                 await resourceStream.CopyToAsync(context.Response.Body);
