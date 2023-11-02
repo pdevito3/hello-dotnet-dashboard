@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  recipemanagement-db:
+    image: postgres
+    restart: always
+    ports:
+      - '56067:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dev_recipemanagement
+    volumes:
+      - recipemanagement-data:/var/lib/postgresql/data
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+#    port mappings: https://www.jaegertracing.io/docs/1.32/getting-started/
+    ports:
+      - "56072:5775/udp"
+      - "56071:6831/udp"
+      - "56073:6832/udp"
+      - "56074:5778"
+      - "56075:16686"
+      - "56076:14250"
+      - "56077:14268"
+      - "56078:14269"
+      - "56079:9411"
+
+        
+volumes:
+  # compose volumes marker - do not delete
+  recipemanagement-data:
